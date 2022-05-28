@@ -1,5 +1,6 @@
 class LinkedList
   attr_accessor :root
+
   def initialize(node)
     @root = node
   end
@@ -9,18 +10,30 @@ class LinkedList
   end
 
   def reverse_list
+    current = next_node = root
+    previous = nil
+
+    until current.next_node.nil?
+      next_node = current.next_node
+      current.next_node = previous
+      previous = current
+      current = next_node
+    end
+
+    @root = previous
   end
+
   def traverse
     current = root
-    values = ""
-    while(current != nil)
-     values += current.value + " ->"
-     current = current.next_node
+    values = ''
+    until current.nil?
+      values += "#{current.value} -> "
+      current = current.next_node
     end
     values
   end
 
-  alias :to_s :traverse
+  alias to_s traverse
 end
 
 class Node
