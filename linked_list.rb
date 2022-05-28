@@ -12,9 +12,12 @@ class LinkedList
   end
   def traverse
     current = root
-    until current  == nil
-      p "#{current.value} ->"
+    values = ""
+    while(current != nil)
+     values += current.value + " ->"
+     current = current.next_node
     end
+    values
   end
 
   alias :to_s :traverse
