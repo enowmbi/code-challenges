@@ -33,6 +33,13 @@ class LinkedList
     values
   end
 
+  def traverse_recursive
+    current = root
+    return if current.nil?
+    p "#{current.value} ->"
+    traverse_recursive(current.next_node)
+  end
+
   alias to_s traverse
 end
 
