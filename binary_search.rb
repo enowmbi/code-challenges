@@ -3,15 +3,15 @@
 def binary_search(arr, target)
   low = 0
   high = arr.length - 1
-  middle = (high - low) / 2
 
-  while low < high
+  while low <= high
+    middle = low + (high - low) / 2
     return "Target found at index: #{arr.index(target)}" if target == arr[middle]
 
     if target > arr[middle]
-      low = middle
+      low = middle + 1
     elsif target < arr[middle]
-      high = middle
+      high = middle - 1
     end
   end
 
