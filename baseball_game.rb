@@ -11,11 +11,11 @@ def call_points(ops)
         val = stack.pop
         sum -= val
       elsif entry == "D"
-        val = stack[stack.length - 1] * 2
+        val = stack.last * 2
         stack << val
         sum += val
       else
-        val = (stack[stack.length - 1] + stack[stack.length - 2])
+        val = (stack.last + stack.last(2).first)
         stack << val
         sum += val
       end
